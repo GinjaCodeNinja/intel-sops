@@ -1,5 +1,5 @@
 # Apex · Custom Build & Optimization — Overview
-## Northern Copilot Advantage · Stage Overview
+## Managed Intelligence Program · Stage Overview
 
 **Status:** Internal Working Draft v0.1 — new stage; absorbs the custom-build scope that used to live under Fly/Frontier. Delivery details still draft.
 **Read this first** for Apex, then the Onboarding SOP, Delivery SOP, and Open Decisions.

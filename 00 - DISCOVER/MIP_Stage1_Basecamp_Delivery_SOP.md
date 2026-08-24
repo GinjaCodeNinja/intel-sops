@@ -1,16 +1,16 @@
-# Kickstart — Delivery SOP *(rough draft)*
+# Basecamp — Delivery SOP *(rough draft)*
 ## For the facilitator
 
-> **ROUGH DRAFT** — grounded in the NCA training-platform README + the existing 90-minute Kickstart agenda; to be fleshed out with **Nick Chubb's delivery documentation**. Points marked ⟨OPEN⟩ need Nick's input or a group decision.
+> **ROUGH DRAFT** — grounded in the MIP training-platform README + the existing 90-minute Basecamp agenda; to be fleshed out with **Nick Chubb's delivery documentation**. Points marked ⟨OPEN⟩ need Nick's input or a group decision.
 
-**What this covers:** running the Kickstart workshop, handling cancel/reschedule and follow-ups, and the post-session wrap-up.
-**Assumes onboarding is complete** — see the Kickstart Onboarding SOP (session set up in the platform, launch link shared, facilitator prepped). No named owners.
+**What this covers:** running the Basecamp workshop, handling cancel/reschedule and follow-ups, and the post-session wrap-up.
+**Assumes onboarding is complete** — see the Basecamp Onboarding SOP (session set up in the platform, launch link shared, facilitator prepped). No named owners.
 
 ---
 
 ## 1. Run the session (~90 min)
 - Deliver from the **Player** (PWA, full-screen; **Presenter View** for notes + timer).
-- Agenda follows the existing **90-minute Kickstart run-of-show** *(reference the Stage 1 agenda)*. Typical beats:
+- Agenda follows the existing **90-minute Basecamp run-of-show** *(reference the Stage 1 agenda)*. Typical beats:
   - Framing + guardrails (what this is / isn't; Copilot Chat as the safe, approved starting point).
   - How Copilot actually works (mental model; hallucinations vs. confidence).
   - How to write a good prompt (golden rules; before/after).

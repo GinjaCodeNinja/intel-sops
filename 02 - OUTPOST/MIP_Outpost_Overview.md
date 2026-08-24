@@ -1,5 +1,5 @@
 # Outpost · Adoption — Overview
-## Northern Copilot Advantage · Stage Overview
+## Managed Intelligence Program · Stage Overview
 
 **Status:** Internal Working Draft v0.1 — stage name is final; delivery details below still draft.
 **Read this first** for Outpost, then the Onboarding SOP, Delivery SOP, and Open Decisions.

@@ -1,5 +1,5 @@
 # Frontier · Scale-Readiness — Overview
-## Northern Copilot Advantage · Stage Overview
+## Managed Intelligence Program · Stage Overview
 
 **Status:** Internal Working Draft v0.1 — stage name is final and scope was rebalanced (custom-build work moved to the new Apex stage below); delivery details still draft.
 **Read this first** for Frontier, then the Onboarding SOP, Delivery SOP, and Open Decisions.
