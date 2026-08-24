@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your AI Advantage — Stage 2 Session Design v3</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+:root {
+  --navy:    #1D314A;
+  --blue:    #315876;
+  --orange:  #E67E22;
+  --orange-light: #F39C55;
+  --mist:    #F4F7FF;
+  --steel:   #46505A;
+  --green:   #1a6b4a;
+  --border:  #dde3ec;
+  --text:    #1e293b;
+  --text-sm: #4a5568;
+  --purple:  #534AB7;
+  --teal:    #0F6E56;
+  --amber:   #92400e;
+}
+
+body {
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  background: #eef1f7;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ── COVER ── */
+.cover {
+  background: linear-gradient(140deg, var(--navy) 0%, #2a4a6e 60%, var(--blue) 100%);
+  color: #fff;
+  padding: 64px 80px 72px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: 35%;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(230,126,34,.07);
+}
+.cover-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .45;
+  margin-bottom: 40px;
+}
+.cover-badge {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.cover h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+.cover h1 span { color: var(--orange-light); }
+.cover-sub {
+  font-size: 17px;
+  font-weight: 300;
+  opacity: .7;
+  margin-bottom: 52px;
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  line-height: 1.5;
+}
+.cover-meta {
+  display: flex;
+  gap: 32px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 28px;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+.cover-meta-lbl {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .45;
+  margin-bottom: 4px;
+}
+.cover-meta-val {
+  font-size: 15px;
+  font-weight: 600;
+  opacity: .9;
+}
+
+/* ── INTENT BAR ── */
+.intent-bar {
+  background: var(--orange);
+  color: #fff;
+  padding: 20px 80px;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.intent-bar strong { font-style: normal; font-weight: 700; }
+
+/* ── SINGLE-TRACK INTRO ── */
+.single-track-intro {
+  background: var(--mist);
+  border-left: 4px solid var(--navy);
+  margin: 40px 48px 0;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+}
+.track-block-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.track-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.track-dot-teal  { background: var(--teal); }
+.track-block-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.single-track-intro p {
+  font-size: 14px;
+  color: var(--text-sm);
+  line-height: 1.55;
+}
+
+/* ── PAGE BODY ── */
+.page { max-width: 1000px; margin: 0 auto; padding: 0 48px 80px; }
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 52px 0 28px;
+  cursor: pointer;
+}
+.section-header::after {
+  content: ' (click to expand/collapse all)';
+  font-size: 11px;
+  opacity: 0.4;
+  font-weight: 400;
+  font-style: italic;
+}
+.session-pill {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+.pill-s1   { background: var(--blue); }
+.pill-s2   { background: var(--teal); }
+.pill-s3   { background: var(--green); }
+
+.session-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--text-sm);
+  margin-bottom: 3px;
+}
+.session-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.session-meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+.session-chip {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-sm);
+  background: #e8edf5;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.chip-teal {
+  background: rgba(15,110,86,.1);
+  color: var(--teal);
+}
+.chip-green {
+  background: rgba(26,107,74,.1);
+  color: var(--green);
+}
+
+/* ── PART BLOCKS ── */
+.part {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.part-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--mist);
+  cursor: pointer;
+  user-select: none;
+}
+.part-header::after {
+  content: '▼';
+  font-size: 10px;
+  opacity: 0.3;
+  transition: transform 0.3s ease;
+  margin-left: 8px;
+}
+.part.expanded .part-header::after {
+  transform: rotate(-180deg);
+}
+.part:not(.expanded) .part-header {
+  border-bottom: none;
+}
+.part-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  opacity: .5;
+  white-space: nowrap;
+}
+.part-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  flex: 1;
+}
+.part-time {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--orange);
+  white-space: nowrap;
+  background: rgba(230,126,34,.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.part-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  padding: 0 24px;
+}
+.part.expanded .part-body {
+  max-height: 2000px;
+  opacity: 1;
+  padding: 18px 24px 22px;
+}
+.part-body p {
+  font-size: 15px;
+  color: var(--text-sm);
+  margin-bottom: 12px;
+  line-height: 1.65;
+}
+.part-body p:last-child { margin-bottom: 0; }
+
+/* ── LISTS ── */
+.item-list { list-style: none; margin: 10px 0 12px; }
+.item-list li {
+  font-size: 15px;
+  color: var(--text-sm);
+  padding: 6px 0 6px 22px;
+  position: relative;
+  border-bottom: 1px solid #f0f3f8;
+  line-height: 1.55;
+}
+.item-list li:last-child { border-bottom: none; }
+.item-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-weight: 700;
+}
+.item-list li strong { color: var(--text); }
+
+/* ── CALLOUTS ── */
+.callout {
+  background: #f8faff;
+  border-left: 3px solid var(--blue);
+  border-radius: 0 6px 6px 0;
+  padding: 13px 17px;
+  margin: 12px 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--steel);
+  line-height: 1.6;
+}
+.callout strong { font-style: normal; font-weight: 700; color: var(--navy); }
+
+.callout-amber {
+  background: rgba(146,64,14,.06);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 6px 6px 0;
+  padding: 13px 17px;
+  margin: 12px 0;
+  font-size: 14px;
+  color: var(--steel);
+  line-height: 1.6;
+}
+.callout-amber strong { font-weight: 700; color: var(--amber); }
+
+/* ── HIGHLIGHT BOX ── */
+.highlight-box {
+  background: linear-gradient(135deg, #fff8f2, #fff3e8);
+  border: 1px solid rgba(230,126,34,.25);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 12px 0;
+}
+.highlight-box-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 7px;
+}
+.highlight-box p {
+  font-size: 14px;
+  color: var(--steel);
+  line-height: 1.6;
+  margin-bottom: 0 !important;
+}
+
+/* ── QUESTION BLOCKS ── */
+.question-block {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 12px 0;
+  color: #fff;
+}
+.question-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--orange-light);
+  margin-bottom: 5px;
+}
+.question-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.question-note {
+  font-size: 13px;
+  opacity: .65;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── HW TABLE ── */
+.hw-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+.hw-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 9px 13px;
+  text-align: left;
+}
+.hw-table td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-sm);
+  vertical-align: top;
+}
+.hw-table tr:last-child td { border-bottom: none; }
+
+/* ── TRACK MARKER ── */
+.track-marker {
+  margin: 36px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.track-marker-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.track-marker-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.marker-amber {
+  background: rgba(146,64,14,.1);
+  color: var(--amber);
+  border: 1px solid rgba(146,64,14,.2);
+}
+.marker-green {
+  background: rgba(26,107,74,.1);
+  color: var(--green);
+  border: 1px solid rgba(26,107,74,.2);
+}
+.marker-teal {
+  background: rgba(15,110,86,.1);
+  color: var(--teal);
+  border: 1px solid rgba(15,110,86,.2);
+}
+
+/* ── SCOPE TABLE ── */
+.scope-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+.scope-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 9px 13px;
+  text-align: left;
+}
+.scope-table td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-sm);
+  vertical-align: middle;
+  font-size: 14px;
+}
+.scope-table tr:last-child td { border-bottom: none; }
+.scope-table tr:nth-child(even) td { background: var(--mist); }
+
+/* ── AUP WARNING ── */
+.aup-warning {
+  background: rgba(146,64,14,.07);
+  border: 1px solid rgba(146,64,14,.25);
+  border-radius: 6px;
+  padding: 13px 17px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: #633806;
+  line-height: 1.6;
+}
+.aup-warning strong { font-weight: 700; }
+
+/* ── DELIVERABLE CHIPS ── */
+.deliverable-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.deliverable-chip {
+  background: rgba(15,110,86,.08);
+  border: 1px solid rgba(15,110,86,.2);
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+/* ── CLOSING BOX ── */
+.closing {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 8px;
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.closing h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--orange-light);
+}
+.closing ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.closing ul li {
+  font-size: 14px;
+  opacity: .85;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+.closing ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--orange-light);
+  font-weight: 700;
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 32px 48px;
+  font-size: 11px;
+  color: #94a3b8;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.cover h1 { animation: fadeUp .6s ease both; }
+.cover-sub { animation: fadeUp .6s ease .1s both; }
+.cover-meta { animation: fadeUp .6s ease .2s both; }
+
+/* ── TIMELINE EMBED ── */
+.timeline-section {
+  margin: 32px 0 0;
+}
+.timeline-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-sm);
+  margin-bottom: 10px;
+}
+.timeline-wrap {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px 20px 16px;
+  overflow: hidden;
+}
+
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-eyebrow">Northern Computer Inc. · Northern Copilot Advantage · Stage 2</div>
+  <div class="cover-badge">Internal Planning Document</div>
+  <h1><span>Your AI Advantage</span><br>Stage 2 Session Design</h1>
+  <p class="cover-sub">Three structured sessions guiding business owners from AI readiness assessment through to safe, governed Copilot activation — in roughly four weeks.</p>
+  <div class="cover-meta">
+    <div>
+      <div class="cover-meta-lbl">Sessions</div>
+      <div class="cover-meta-val">Assessment Kickoff · Report Review · AI Roadmap Planning</div>
+    </div>
+    <div>
+      <div class="cover-meta-lbl">Audience</div>
+      <div class="cover-meta-val">Business Owner · Key Executives</div>
+    </div>
+    <div>
+      <div class="cover-meta-lbl">Stage</div>
+      <div class="cover-meta-val">Stage 2 — AI Readiness Assessment</div>
+    </div>
+    <div>
+      <div class="cover-meta-lbl">Status</div>
+      <div class="cover-meta-val">Draft v3 — Internal Review</div>
+    </div>
+  </div>
+</div>
+
+<!-- INTENT BAR -->
+<div class="intent-bar">
+  <strong>The idea:</strong> Three sessions over roughly four weeks. Session 1 aligns and educates. The assessment sees what's actually there. Session 2 delivers the findings plainly. Session 3 turns those findings into a practial action plan. At the end of Stage 3, the business has safely enabled AI — one data area at a time.
+</div>
+
+<!-- PAGE -->
+<div class="page">
+
+<!-- SINGLE-TRACK INTRO -->
+<div class="single-track-intro">
+  <div class="track-block-header">
+    <div class="track-dot track-dot-teal"></div>
+    <div class="track-block-title">Three sessions. One outcome: safely enabled AI.</div>
+  </div>
+  <p>Every Stage 2 client follows the same path: Assessment Kickoff → technical review → Report Review → AI Roadmap Planning. Sequential, lean, and designed for SMB executives who have limited time and no prior experience with AI governance. The process builds their knowledge as it goes — so that by Session 3, they are making real decisions with genuine confidence.</p>
+</div>
+
+<!-- TIMELINE OVERVIEW -->
+<div class="timeline-section">
+  <div class="timeline-section-label">How it all fits together — Stage 2 at a glance</div>
+  <div class="timeline-wrap">
+    <svg width="100%" viewBox="0 0 680 510" role="img" xmlns="http://www.w3.org/2000/svg">
+    <title>Stage 2 — three-session process flow</title>
+    <desc>Linear single-column timeline showing Session 1, Assessment Window, Report Delivered, Session 2, Session 3, and Stage 3 in sequence.</desc>
+    <style>
+    .tl-th-te  { font-size: 13px; font-weight: 600; fill: #085041; font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    .tl-ts-te  { font-size: 11px; font-weight: 400; fill: #0F6E56; font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    .tl-th-am  { font-size: 13px; font-weight: 600; fill: #633806; font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    .tl-ts-am  { font-size: 11px; font-weight: 400; fill: #92400e; font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    .tl-th-gr  { font-size: 13px; font-weight: 600; fill: #1a6b4a; font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    .tl-ts-gr  { font-size: 11px; font-weight: 400; fill: #1a6b4a; font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    .tl-day    { font-size: 10px; font-weight: 700; fill: #94a3b8; letter-spacing: .08em; text-transform: uppercase; font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    .tl-lgnd   { font-size: 11px; font-weight: 400; fill: #4a5568; font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+    </style>
+
+    <!-- Day labels column (left) -->
+    <text class="tl-day" x="48" y="52" text-anchor="middle">Day 1</text>
+    <text class="tl-day" x="48" y="130" text-anchor="middle">Week</text>
+    <text class="tl-day" x="48" y="142" text-anchor="middle">1–2</text>
+    <text class="tl-day" x="48" y="200" text-anchor="middle">Day 15</text>
+    <text class="tl-day" x="48" y="278" text-anchor="middle">Day</text>
+    <text class="tl-day" x="48" y="290" text-anchor="middle">18–20</text>
+    <text class="tl-day" x="48" y="368" text-anchor="middle">Day</text>
+    <text class="tl-day" x="48" y="380" text-anchor="middle">23–25</text>
+    <text class="tl-day" x="48" y="458" text-anchor="middle">Stage 3</text>
+    <text class="tl-day" x="48" y="470" text-anchor="middle">onward</text>
+
+    <!-- Vertical spine -->
+    <line x1="88" y1="30" x2="88" y2="488" stroke="#dde3ec" stroke-width="2"/>
+
+    <!-- NODE 1: Session 1 -->
+    <circle cx="88" cy="46" r="8" fill="#0F6E56"/>
+    <!-- Box -->
+    <rect x="108" y="20" width="540" height="58" rx="5" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+    <text class="tl-th-te" x="124" y="40">Session 1 — Assessment Kickoff</text>
+    <text class="tl-ts-te" x="124" y="58">Three Questions · Process Map · Vocabulary Bridge · Reflection Guide — ~60–75 min</text>
+
+    <!-- Spine segment -->
+    <line x1="88" y1="78" x2="88" y2="108" stroke="#dde3ec" stroke-width="2"/>
+
+    <!-- NODE 2: Assessment Window -->
+    <circle cx="88" cy="116" r="8" fill="#0F6E56" opacity=".45"/>
+    <rect x="108" y="96" width="540" height="52" rx="5" fill="#f0faf6" stroke="#0F6E56" stroke-width="0.75" stroke-dasharray="5 3"/>
+    <text class="tl-th-te" x="124" y="116" opacity=".75">Assessment Window — NCI technical review</text>
+    <text class="tl-ts-te" x="124" y="132" opacity=".75">AvePoint environment scan · approximately 2 weeks · exec completes Reflection Guide</text>
+
+    <!-- Spine segment -->
+    <line x1="88" y1="148" x2="88" y2="178" stroke="#dde3ec" stroke-width="2"/>
+
+    <!-- NODE 3: Report Delivered -->
+    <circle cx="88" cy="186" r="8" fill="#BA7517"/>
+    <rect x="108" y="162" width="540" height="52" rx="5" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+    <text class="tl-th-am" x="124" y="182">Report Delivered</text>
+    <text class="tl-ts-am" x="124" y="200">NCI delivers report · exec reads it · 3–5 days before Session 2</text>
+
+    <!-- Spine segment -->
+    <line x1="88" y1="214" x2="88" y2="254" stroke="#dde3ec" stroke-width="2"/>
+
+    <!-- NODE 4: Session 2 -->
+    <circle cx="88" cy="262" r="8" fill="#0F6E56"/>
+    <rect x="108" y="238" width="540" height="58" rx="5" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+    <text class="tl-th-te" x="124" y="258">Session 2 — Report Review</text>
+    <text class="tl-ts-te" x="124" y="276">Walk the findings · answer questions · nothing to decide today — ~30–45 min</text>
+
+    <!-- Spine segment -->
+    <line x1="88" y1="296" x2="88" y2="346" stroke="#dde3ec" stroke-width="2"/>
+
+    <!-- NODE 5: Session 3 -->
+    <circle cx="88" cy="354" r="8" fill="#1a6b4a"/>
+    <rect x="108" y="328" width="540" height="58" rx="5" fill="#EAF3DE" stroke="#1a6b4a" stroke-width="1"/>
+    <text class="tl-th-gr" x="124" y="348">Session 3 — AI Roadmap Planning</text>
+    <text class="tl-ts-gr" x="124" y="366">Confirm scope · name data owners · prioritize areas · build Stage 3 plan — ~60–90 min</text>
+
+    <!-- Spine segment -->
+    <line x1="88" y1="386" x2="88" y2="426" stroke="#dde3ec" stroke-width="2"/>
+
+    <!-- NODE 6: Stage 3 -->
+    <circle cx="88" cy="434" r="8" fill="#1a6b4a" opacity=".6"/>
+    <rect x="108" y="412" width="540" height="66" rx="5" fill="#d4edda" stroke="#1a6b4a" stroke-width="1"/>
+    <text class="tl-th-gr" x="124" y="432">Stage 3 — Rinse &amp; Repeat (one area at a time)</text>
+    <text class="tl-ts-gr" x="124" y="450">Owner cleans up area  →  NCI validates with AvePoint  →  Copilot access enabled</text>
+    <text class="tl-ts-gr" x="124" y="468">Move to next priority area and repeat</text>
+
+    <!-- Legend -->
+    <line x1="88" y1="494" x2="648" y2="494" stroke="#f0f3f8" stroke-width="0.5"/>
+    <circle cx="110" cy="504" r="5" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+    <text class="tl-lgnd" x="122" y="508">Facilitated session</text>
+    <circle cx="248" cy="504" r="5" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+    <text class="tl-lgnd" x="260" y="508">Deliverable milestone</text>
+    <circle cx="398" cy="504" r="5" fill="#EAF3DE" stroke="#1a6b4a" stroke-width="1"/>
+    <text class="tl-lgnd" x="410" y="508">Planning &amp; activation</text>
+    <circle cx="538" cy="504" r="5" fill="#f0faf6" stroke="#0F6E56" stroke-width="0.75"/>
+    <text class="tl-lgnd" x="550" y="508">NCI internal work</text>
+    </svg>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════
+     SESSION 1 — ASSESSMENT KICKOFF
+════════════════════════════════════ -->
+<div class="section-header">
+  <div class="session-pill pill-s1">1</div>
+  <div>
+    <div class="session-label">Session One · Assessment Kickoff</div>
+    <div class="session-title">Assessment Kickoff</div>
+    <div class="session-meta">
+      <span class="session-chip">⏱ 60–75 minutes</span>
+      <span class="session-chip">📅 Start of Stage 2</span>
+      <span class="session-chip">👥 Business owner + key executives + NCI AM/SE</span>
+    </div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part A</span>
+    <span class="part-title">Framing the Journey</span>
+    <span class="part-time">~15 min</span>
+  </div>
+  <div class="part-body">
+    <p>Connect where they've been to where they're going. They've done Stage 1 — they've used Copilot, they liked it. Now the question is: <em>what has to be true before we can do this safely?</em></p>
+    <ul class="item-list">
+      <li><strong>Introduce the Readiness Level framework</strong> before they ever see their number. Normalize Level 1. <em>"Most organizations your size are at Level 1. It's not a grade — it's a starting line."</em></li>
+      <li><strong>Explain what the assessment covers</strong> — security posture, document organization, ownership, existing policies</li>
+      <li><strong>Set expectations for the report</strong> — plain-language findings, designed to stand on their own, shareable with a lawyer or compliance advisor</li>
+      <li><strong>Introduce the governance concept briefly</strong> — the main finding is usually not a security problem, it's that nobody has made decisions yet about who's responsible for what</li>
+    </ul>
+    <div class="highlight-box">
+      <div class="highlight-box-title">Set expectations for what comes next</div>
+      <p>Let the exec know two more sessions follow the assessment. <em>"Once the technical review is complete — roughly two weeks — we'll meet to walk through the findings together. Then we'll have a working session with you and a few key people to turn those findings into an action plan. Both sessions are straightforward, and nothing gets decided today."</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part B</span>
+    <span class="part-title">The Three Questions That Drive Everything</span>
+    <span class="part-time">~20 min</span>
+  </div>
+  <div class="part-body">
+    <p>This is the pre-assessment alignment conversation elevated into a leadership discussion. Frame it clearly:</p>
+    <div class="callout">
+      <strong>"Before we start the technical assessment, there are three questions only you can answer. Your answers will shape everything — what we look at, what we prioritize, and what Copilot actually does for your business."</strong>
+    </div>
+    <div class="question-block">
+      <div class="question-num">Question 1</div>
+      <div class="question-text">What do you actually want Copilot to have access to?</div>
+      <div class="question-note">Walk through categories using the Process Map: client files, internal operations, finance, HR, email and calendar, Teams conversations. The goal is getting the executive thinking in terms of intentional access rather than default access — most haven't considered these are different things.</div>
+    </div>
+    <div class="question-block" style="margin-top:10px;">
+      <div class="question-num">Question 2</div>
+      <div class="question-text">What is your source of truth for each of those areas?</div>
+      <div class="question-note">This one usually produces a pause. For Copilot to give reliable answers, it needs to know where the real version of something lives. Most executives haven't had to write this down before. The goal is surfacing the question, not collecting the answer today.</div>
+    </div>
+    <div class="question-block" style="margin-top:10px;">
+      <div class="question-num">Question 3</div>
+      <div class="question-text">Does each of those areas have a responsible owner — and do they know it?</div>
+      <div class="question-note">The second half of this question is what lands. Most executives can name someone for each area. Far fewer are confident that person knows they're accountable for it. The goal is surfacing the accountability gap — not filling it today. That happens in Session 3.</div>
+    </div>
+    <p style="margin-top:12px;">The goal here is <strong>not</strong> to gather complete answers today. It's to ensure the executive starts thinking about intentional access, data quality, and ownership — so the report's findings already have a mental home when they arrive.</p>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part C</span>
+    <span class="part-title">Vocabulary Bridge — From the Room to the Report</span>
+    <span class="part-time">~10 min</span>
+  </div>
+  <div class="part-body">
+    <p>The three questions we just worked through have names in the report. This section translates what the exec just said in plain language into the terms they'll see when the findings arrive. The goal is zero surprises — not a governance lesson.</p>
+    <div class="callout">
+      <strong>"The report will use four terms for what we just discussed. You'll recognize all of them when they show up."</strong>
+    </div>
+    <ul class="item-list">
+      <li><strong>Information Scope</strong> — Copilot doesn't have a preference for what it reads; it reads everything it can reach. This maps to what you described in Question 1. The report will identify what's currently in scope — and what you may not have realized was included.</li>
+      <li><strong>Source of Truth</strong> — The version problem from Question 2. Where the real version of something lives is often not written down anywhere. The assessment will tell you what we can see inside Microsoft 365, but source of truth is ultimately a business decision, not a tool output. The report will start that conversation — it won't finish it.</li>
+      <li><strong>Data Ownership</strong> — The accountability question from Question 3. Every data area needs a named person responsible for keeping it current and accurate. The report will show where owners are missing or unclear.</li>
+      <li><strong>Shadow AI and the AI Acceptable Use Policy</strong> — One concept we haven't covered yet: your staff are probably already using AI tools outside of Copilot. That's not a discipline problem — it's a signal that your team wants to work this way. One of the things we deliver alongside the report is an <strong>example AI Acceptable Use Policy</strong> — a starting point for the conversation about what's approved, what isn't, and what the rules are. <em>Note: the example is exactly that — an example. Any policy your organization actually adopts should be developed with your own legal counsel.</em></li>
+    </ul>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part D</span>
+    <span class="part-title">Your AI Readiness Decisions — The Reflection Guide</span>
+    <span class="part-time">~10 min</span>
+  </div>
+  <div class="part-body">
+    <p>Don't call it homework. Hand over the Reflection Guide with clear framing:</p>
+    <div class="callout">
+      "These aren't questions we need answered to start the assessment — we're already starting. These are questions worth sitting with so that when the report arrives, you're already thinking in the right direction. Grab a coffee, 15 minutes."
+    </div>
+    <table class="hw-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Section</th>
+          <th>What It Asks</th>
+          <th style="width:28%">Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>What wouldn't you want Copilot to read?</strong></td>
+          <td>Easier to define the fence than the field — this is the entry question</td>
+          <td>Open reflection</td>
+        </tr>
+        <tr>
+          <td><strong>Where does time disappear in your week?</strong></td>
+          <td>Replaces "where could AI help?" — answerable without AI knowledge</td>
+          <td>Open reflection</td>
+        </tr>
+        <tr>
+          <td><strong>Who do your people go to for the real answer?</strong></td>
+          <td>Natural data owner identification — revisits Q3 in private; honest answers differ from in-room answers</td>
+          <td>Names / roles</td>
+        </tr>
+        <tr>
+          <td><strong>Potential data owners by area</strong></td>
+          <td>Rough names against content areas — blank rows are just as useful</td>
+          <td>Simple table</td>
+        </tr>
+        <tr>
+          <td><strong>What's your honest concern about AI?</strong></td>
+          <td>Surfaces the real worry before Session 3 — not the polished answer</td>
+          <td>Open reflection</td>
+        </tr>
+        <tr>
+          <td><strong>What does success look like in 6 months?</strong></td>
+          <td>Personal north star — we refer back to this in Session 3</td>
+          <td>Open reflection</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box" style="margin-top:14px;">
+      <div class="highlight-box-title">Facilitator note — intentional overlap</div>
+      <p>Questions 3 and 4 of the Reflection Guide revisit ground covered in Part B Question 3. That's deliberate. What an executive writes down alone over coffee is often more honest than what they said in the room. Don't skip them.</p>
+    </div>
+    <div class="highlight-box" style="margin-top:10px;">
+      <div class="highlight-box-title">Also hand over the Process Map</div>
+      <p>The Core Process Map was completed together in the room during Part B. Leave a copy with the exec — it's a shared reference. NCI keeps a copy too. It comes back in Session 3 when we confirm scope and assign owners area by area.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TRACK MARKER: ASSESSMENT WINDOW -->
+<div class="track-marker">
+  <div class="track-marker-line"></div>
+  <div class="track-marker-badge marker-teal">Assessment Window — NCI technical review · approximately 2 weeks</div>
+  <div class="track-marker-line"></div>
+</div>
+
+<!-- TRACK MARKER: REPORT DELIVERED -->
+<div class="track-marker" style="margin-top:-12px;">
+  <div class="track-marker-line"></div>
+  <div class="track-marker-badge marker-amber">Report Delivered · exec reads it · 3–5 days before Session 2</div>
+  <div class="track-marker-line"></div>
+</div>
+
+
+<!-- ════════════════════════════════════
+     SESSION 2 — REPORT REVIEW
+════════════════════════════════════ -->
+<div class="section-header">
+  <div class="session-pill pill-s2">2</div>
+  <div>
+    <div class="session-label">Session Two · Report Review</div>
+    <div class="session-title">Report Review</div>
+    <div class="session-meta">
+      <span class="session-chip">⏱ 30–45 minutes</span>
+      <span class="session-chip chip-teal">📅 3–5 days after report delivery</span>
+      <span class="session-chip">👥 Business owner + NCI AM/SE</span>
+    </div>
+  </div>
+</div>
+
+<div class="callout-amber" style="margin-bottom:14px;">
+  <strong>This session has one job:</strong> make sure the exec understands what the report found and feels settled about what comes next. No decisions are made here. No governance plan is built here. Nothing is sold here. Session 3 does all of that — this session just ensures the exec arrives there informed.
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part A</span>
+    <span class="part-title">Initial Reactions First</span>
+    <span class="part-time">~10 min</span>
+  </div>
+  <div class="part-body">
+    <p>Don't open with the report. Open with a check-in. The exec has had a few days alone with the findings — give them space to say what landed before you present anything.</p>
+    <div class="callout">
+      "You've had a couple of days with the report. Before we walk through it together — what's your initial read?"
+    </div>
+    <p>This surfaces real reactions and tells the facilitator where to spend energy. Common responses:</p>
+    <ul class="item-list">
+      <li><strong>Anxious</strong> — "This feels like a lot." → Normalize the findings. Remind them this is what organizations their size look like before anyone has made deliberate decisions about AI. It's the starting line.</li>
+      <li><strong>Curious</strong> — "I had no idea Copilot could see all that." → Good. The vocabulary from Session 1 Part C did its job. Follow the thread.</li>
+      <li><strong>Settled</strong> — "Most of this matches what I expected." → Confirm their read, then move to Part B. Don't add drama.</li>
+      <li><strong>Dismissive</strong> — "IT handles all this." → Gently redirect. Data ownership and access decisions are leadership decisions, not IT decisions. Session 3 makes that concrete.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part B</span>
+    <span class="part-title">The Findings Walk</span>
+    <span class="part-time">~20 min</span>
+  </div>
+  <div class="part-body">
+    <p>Walk through each section of the report together using plain language. The exec already has the vocabulary from Session 1 Part C — use it without re-explaining it. Anchor findings to the process map from Session 1 where you can.</p>
+    <ul class="item-list">
+      <li><strong>Security posture</strong> — What the foundation looks like. This is usually the good news — frame it as "something to build on."</li>
+      <li><strong>Information scope</strong> — What Copilot currently has access to. Often broader than the exec expected. Connect this back to their Q1 answer from Session 1.</li>
+      <li><strong>Source of truth gaps</strong> — Where multiple versions of things exist or where the authoritative copy is unclear. This is expected at this stage.</li>
+      <li><strong>Ownership gaps</strong> — Where named accountable owners are missing. This is the most common finding. It's not negligence — it's the natural result of using M365 practically without anticipating AI.</li>
+    </ul>
+    <div class="highlight-box">
+      <div class="highlight-box-title">Keep this human</div>
+      <p>If a finding lands hard or produces a strong reaction — slow down. A brief <em>"does that make sense?"</em> or <em>"what does that bring up for you?"</em> is more useful than moving to the next slide. The goal is that they leave feeling informed, not overwhelmed.</p>
+    </div>
+    <p>Close every finding with: <em>"This is what your environment looks like today — not a verdict. Session 3 is where we decide what to do about it."</em></p>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Closing</span>
+    <span class="part-title">Confirm Session 3 and Close</span>
+    <span class="part-time">~5 min</span>
+  </div>
+  <div class="part-body">
+    <p>End simply. Don't introduce new concepts. Don't start the governance conversation.</p>
+    <div class="callout">
+      "Nothing to decide today — you now know what the assessment found. Session 3 is where we turn this into a plan. You'll want to bring a few of the people we talked about in Session 1 — the ones most likely to become data owners. Does the picture make sense? Any questions before we close?"
+    </div>
+    <p>Confirm Session 3 is scheduled before you leave the room. If it isn't, schedule it now. The momentum from this session is the fuel for that one.</p>
+  </div>
+</div>
+
+
+<!-- TRACK MARKER: SESSION 3 -->
+<div class="track-marker">
+  <div class="track-marker-line"></div>
+  <div class="track-marker-badge marker-green">Session 3 — AI Roadmap Planning · 3–5 days after Session 2</div>
+  <div class="track-marker-line"></div>
+</div>
+
+
+<!-- ════════════════════════════════════
+     SESSION 3 — AI ROADMAP PLANNING
+════════════════════════════════════ -->
+<div class="section-header">
+  <div class="session-pill pill-s3">3</div>
+  <div>
+    <div class="session-label">Session Three · AI Roadmap Planning</div>
+    <div class="session-title">AI Roadmap Planning</div>
+    <div class="session-meta">
+      <span class="session-chip">⏱ 60–90 minutes</span>
+      <span class="session-chip chip-green">📅 3–5 days after Session 2</span>
+      <span class="session-chip">👥 Business owner + likely data owners + NCI AM/SE</span>
+    </div>
+  </div>
+</div>
+
+<div class="callout-amber" style="margin-bottom:14px;">
+  <strong>This is a working session.</strong> Decisions get made, owners get named, and the Stage 3 queue gets built. The exec should bring the people most likely to become data owners — identified in Session 1 Question 3 and the Reflection Guide. NCI should arrive with a one-page scope summary prepared from the Session 1 process map and report findings, so the group isn't starting from blank.
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part A</span>
+    <span class="part-title">Confirm Scope — What Goes In, What Stays Out</span>
+    <span class="part-time">~15 min</span>
+  </div>
+  <div class="part-body">
+    <p>Revisit the Process Map from Session 1 area by area. For each area, confirm two things:</p>
+    <table class="scope-table" style="margin-bottom:12px;">
+      <thead>
+        <tr>
+          <th style="width:30%">Question</th>
+          <th>Yes answer</th>
+          <th>No / Not yet answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>In scope for Copilot?</strong></td>
+          <td>Enters the Stage 3 work queue</td>
+          <td>Noted — revisit in a later cycle or exclude permanently</td>
+        </tr>
+        <tr>
+          <td><strong>Data in Microsoft 365?</strong></td>
+          <td>AvePoint can assess it · Stage 3 can address it</td>
+          <td>Flagged for separate solution discussion — migration, MCP server, or other approach</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box">
+      <div class="highlight-box-title">The non-M365 conversation</div>
+      <p>If important data lives outside Microsoft 365 — in a line-of-business application, a file server, or a third-party system — that data is currently invisible to Copilot. Getting Copilot access to it requires a separate solution. Note these areas without derailing the session; they become follow-up conversations or proposals after Stage 3 is underway.</p>
+    </div>
+    <p><strong>Output of Part A:</strong> A confirmed scope list — the areas entering Stage 3 — and a flag list of non-M365 areas for follow-up.</p>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part B</span>
+    <span class="part-title">Name the Data Owners</span>
+    <span class="part-time">~20 min</span>
+  </div>
+  <div class="part-body">
+    <p>For each in-scope area from Part A, name one person accountable for it. Work through the list together — drawing on the Reflection Guide Q3/Q4 answers the exec already did privately.</p>
+    <div class="callout">
+      "For each area — who owns it, and does that person know they're being named today?"
+    </div>
+    <ul class="item-list">
+      <li><strong>One owner per area.</strong> Not a team, not a department — one named person. They don't need to do the work alone, but they need to be the one accountable for it.</li>
+      <li><strong>They need to know.</strong> If the right person isn't in the room, the exec commits to telling them before Stage 3 starts. An owner who doesn't know they're an owner is not an owner.</li>
+      <li><strong>What owning an area means in practice:</strong> keeping content current, ensuring permissions are accurate, checking AvePoint reports on a schedule, and approving their area for Copilot access when it's clean. A data owner one-pager will be provided at closeout.</li>
+      <li><strong>If no one can be named for an area</strong> — that area does not get enabled. No owner, no access. This is the governance model working as designed.</li>
+    </ul>
+    <p><strong>Output of Part B:</strong> A data owner registry — one named person per area — filled in and confirmed in the room.</p>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part C</span>
+    <span class="part-title">Prioritize the Stage 3 Queue</span>
+    <span class="part-time">~15 min</span>
+  </div>
+  <div class="part-body">
+    <p>The areas from Part A can't all be addressed at once. Sequence them using three criteria:</p>
+    <ul class="item-list">
+      <li><strong>Value</strong> — Where would Copilot provide the most immediate, visible benefit? Use the exec's Reflection Guide answers and Session 1 Q1 intent as the guide.</li>
+      <li><strong>Readiness</strong> — Where is the data cleanest and most organized today? Starting with a cleaner area builds confidence and momentum. The report findings will show this clearly.</li>
+      <li><strong>Owner motivation</strong> — Where is the named owner most engaged and capable of moving quickly? An enthusiastic owner makes Area 1 succeed; a reluctant one stalls it.</li>
+    </ul>
+    <p><strong>Output of Part C:</strong> A sequenced priority list — Area 1 goes into Stage 3 first, others follow in agreed order. This becomes the Stage 3 work plan. It does not need to be a formal document today — a clear verbal agreement confirmed in a follow-up email is sufficient.</p>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-header">
+    <span class="part-label">Part D</span>
+    <span class="part-title">What Happens Next — The Rinse &amp; Repeat Cycle + AUP</span>
+    <span class="part-time">~10–15 min</span>
+  </div>
+  <div class="part-body">
+    <p>Close the session by making Stage 3 concrete — and by handing over the example AI AUP with the right framing.</p>
+    <p><strong>The rinse and repeat cycle, explained simply:</strong></p>
+    <ul class="item-list">
+      <li><strong>Step 1 — Owner reviews their area.</strong> Using AvePoint and their own knowledge: is this content current? Are permissions correct? Is anything stale or in the wrong place?</li>
+      <li><strong>Step 2 — Owner cleans up.</strong> Archive stale content, correct permissions, tidy structure. NCI can provide guidance but the owner does the work — this is their data.</li>
+      <li><strong>Step 3 — NCI validates with AvePoint.</strong> NCI runs an AvePoint check to confirm the area meets the agreed standard. If it passes — green light.</li>
+      <li><strong>Step 4 — Copilot access enabled</strong> for that area. Specifically and intentionally — not everything, just this area.</li>
+      <li><strong>Step 5 — Move to next area</strong> in the priority queue and repeat.</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>Before handing over the AI AUP example, ask one question:</strong></p>
+    <div class="callout">
+      "Before we hand this over — what's most important to you about how AI is used in your business? What would be completely unacceptable?"
+    </div>
+    <p>This surfaces the exec's non-negotiables before they read the example — so the policy feels like it reflects their values, not just a template from NCI. Note their answer. It should show up in the final policy they adopt.</p>
+    <div class="aup-warning">
+      <strong>Important — Example Only:</strong> The AI Acceptable Use Policy document provided is an example to help start your thinking. It is not a draft policy, not a template, and is not legal advice. Any AI Acceptable Use Policy your organization actually adopts should be developed with your own legal counsel, who can ensure it reflects your specific situation, jurisdiction, and obligations.
+    </div>
+    <p style="margin-top:12px;"><strong>Deliverables handed over at close of Session 3:</strong></p>
+    <div class="deliverable-row">
+      <span class="deliverable-chip">📄 Data Owner Registry (filled in today)</span>
+      <span class="deliverable-chip">📄 Stage 3 Priority Order (Area 1 → Area 2 → …)</span>
+      <span class="deliverable-chip">📄 Example AI Acceptable Use Policy</span>
+      <span class="deliverable-chip">📄 Data Owner Role One-Pager</span>
+    </div>
+    <div class="highlight-box" style="margin-top:14px;">
+      <div class="highlight-box-title">Close by connecting back to their success definition</div>
+      <p>Refer back to the exec's Reflection Guide Q6 answer — what they said success looks like in 6 months. <em>"You told us [their answer]. That's exactly what this is building toward. Area 1 starts in Stage 3 — and each area we enable gets you closer to that."</em> End on forward momentum, not on instructions.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- CLOSING BOX -->
+<div class="closing">
+  <h3>Why This Process Works for SMBs</h3>
+  <ul>
+    <li>Three sessions in four weeks — no extended engagement required</li>
+    <li>Executives start from zero — the process teaches as it progresses</li>
+    <li>Governance emerges from the exec's own answers — not imposed from outside</li>
+    <li>One data area at a time — never governing "everything" at once</li>
+    <li>Copilot access is earned by each area — clear criteria, no ambiguity</li>
+    <li>Data owners are named in the room, not assigned by memo</li>
+    <li>The AI AUP is a conversation before it's a document</li>
+    <li>The plan connects directly to what the exec said success looks like</li>
+  </ul>
+</div>
+
+</div><!-- /page -->
+
+<div class="footer">
+  Northern Computer Inc. · Northern Copilot Advantage · Stage 2 · Internal Planning Document · Not for Client Distribution · v3
+</div>
+
+<script>
+  // Toggle individual part
+  document.querySelectorAll('.part-header').forEach(header => {
+    header.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent section toggle from firing
+      this.parentElement.classList.toggle('expanded');
+    });
+  });
+
+  // Toggle all parts in a section
+  document.querySelectorAll('.section-header').forEach(sectionHeader => {
+    sectionHeader.addEventListener('click', function() {
+      // Find the next section-header or end of document
+      let nextSection = this.nextElementSibling;
+      const allParts = [];
+      
+      while (nextSection && !nextSection.classList.contains('section-header')) {
+        if (nextSection.classList.contains('part')) {
+          allParts.push(nextSection);
+        }
+        nextSection = nextSection.nextElementSibling;
+      }
+      
+      // Check if all parts are expanded
+      const allExpanded = allParts.every(p => p.classList.contains('expanded'));
+      
+      // Toggle all parts
+      allParts.forEach(part => {
+        if (allExpanded) {
+          part.classList.remove('expanded');
+        } else {
+          part.classList.add('expanded');
+        }
+      });
+    });
+  });
+
+  // Optional: Save expanded state to localStorage
+  document.querySelectorAll('.part').forEach((part, index) => {
+    const partId = `part-${index}`;
+    if (localStorage.getItem(partId) === 'expanded') {
+      part.classList.add('expanded');
+    }
+    
+    part.querySelector('.part-header').addEventListener('click', function() {
+      if (part.classList.contains('expanded')) {
+        localStorage.setItem(partId, 'expanded');
+      } else {
+        localStorage.removeItem(partId);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

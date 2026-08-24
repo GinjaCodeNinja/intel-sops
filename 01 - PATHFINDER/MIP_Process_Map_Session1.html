@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your AI Advantage — Core Process Map</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+
+:root {
+  --navy:         #1D314A;
+  --blue:         #315876;
+  --orange:       #E67E22;
+  --orange-light: #F39C55;
+  --orange-bg:    rgba(230,126,34,.08);
+  --mist:         #F4F7FF;
+  --steel:        #46505A;
+  --border:       #dde3ec;
+  --text:         #1e293b;
+  --text-sm:      #4a5568;
+  --yes-bg:       #ecfdf5;
+  --yes-border:   #6ee7b7;
+  --no-bg:        #fef2f2;
+  --no-border:    #fca5a5;
+  --ns-bg:        #fffbeb;
+  --ns-border:    #fcd34d;
+}
+
+body {
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  background: #eef1f7;
+  color: var(--text);
+  line-height: 1.6;
+  padding: 32px 24px 48px;
+}
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,.10);
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(145deg, var(--navy) 0%, #243d5c 55%, var(--blue) 100%);
+  color: #fff;
+  padding: 32px 40px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  pointer-events: none;
+}
+.header-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .45;
+  margin-bottom: 8px;
+}
+.header-badge {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  margin-bottom: 6px;
+}
+.header h1 span { color: var(--orange-light); }
+.header-sub {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: .7;
+  margin-bottom: 20px;
+}
+.header-meta {
+  display: flex;
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 16px;
+  flex-wrap: wrap;
+}
+.header-meta-item { }
+.header-meta-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  opacity: .4;
+  margin-bottom: 2px;
+}
+.header-meta-val {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: .88;
+}
+
+/* ── INTENT BAR ── */
+.intent-bar {
+  background: var(--orange);
+  color: #fff;
+  padding: 13px 40px;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 300;
+}
+.intent-bar strong { font-style: normal; font-weight: 700; }
+
+/* ── BODY ── */
+.body { padding: 28px 40px 36px; }
+
+/* ── FACILITATOR NOTE ── */
+.facilitator-note {
+  background: var(--mist);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--steel);
+  line-height: 1.55;
+}
+.facilitator-note strong {
+  font-weight: 700;
+  color: var(--navy);
+  font-style: normal;
+}
+.facilitator-note em { font-style: italic; }
+
+/* ── LEGEND ── */
+.legend {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.legend-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-sm);
+  margin-right: 4px;
+}
+.legend-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1.5px solid;
+}
+.chip-yes   { background: var(--yes-bg);  border-color: var(--yes-border); color: #065f46; }
+.chip-ns    { background: var(--ns-bg);   border-color: var(--ns-border);  color: #78350f; }
+.chip-no    { background: var(--no-bg);   border-color: var(--no-border);  color: #991b1b; }
+
+/* ── PROCESS TABLE ── */
+.process-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.process-table thead tr th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: 11px 14px;
+  text-align: left;
+  vertical-align: middle;
+}
+.process-table thead tr th:first-child { border-radius: 6px 0 0 0; }
+.process-table thead tr th:last-child  { border-radius: 0 6px 0 0; }
+
+.process-table tbody tr { border-bottom: 1px solid var(--border); }
+.process-table tbody tr:last-child { border-bottom: 2px solid var(--navy); }
+
+.process-table td {
+  padding: 0;
+  vertical-align: top;
+}
+
+/* process name cell */
+.cell-process {
+  width: 160px;
+  background: var(--mist);
+  border-right: 1px solid var(--border);
+}
+.process-name {
+  padding: 12px 14px 4px;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+  line-height: 1.3;
+}
+.process-example {
+  padding: 0 14px 12px;
+  font-size: 11px;
+  color: var(--text-sm);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* data areas cell */
+.cell-data {
+  width: 220px;
+  border-right: 1px solid var(--border);
+  padding: 10px 14px;
+  vertical-align: top;
+}
+.data-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+.data-tag {
+  background: rgba(49,88,118,.10);
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+.write-line {
+  border: none;
+  border-bottom: 1px dashed #c8d0de;
+  width: 100%;
+  height: 18px;
+  display: block;
+  margin-top: 6px;
+  background: transparent;
+}
+
+/* where stored cell */
+.cell-where {
+  width: 180px;
+  border-right: 1px solid var(--border);
+  padding: 10px 14px;
+  vertical-align: top;
+}
+.where-options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.where-opt {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--text-sm);
+}
+.where-opt .box {
+  width: 14px; height: 14px;
+  border: 1.5px solid #b0bec5;
+  border-radius: 3px;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+/* ai intent cell */
+.cell-intent {
+  width: 130px;
+  padding: 10px 14px;
+  vertical-align: top;
+  text-align: center;
+}
+.intent-options {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+}
+.intent-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+}
+.intent-circle {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  flex-shrink: 0;
+}
+.ic-yes { border-color: var(--yes-border); background: var(--yes-bg); }
+.ic-ns  { border-color: var(--ns-border);  background: var(--ns-bg); }
+.ic-no  { border-color: var(--no-border);  background: var(--no-bg); }
+.it-yes { color: #065f46; }
+.it-ns  { color: #78350f; }
+.it-no  { color: #991b1b; }
+
+/* blank row */
+.blank-row td {
+  background: #fafbfc;
+}
+.blank-label {
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #b0bbc8;
+  font-style: italic;
+}
+
+/* ── SOURCE OF TRUTH SECTION ── */
+.sot-section {
+  margin-top: 24px;
+}
+.sot-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.sot-note {
+  font-size: 13px;
+  color: var(--text-sm);
+  margin-bottom: 14px;
+  font-style: italic;
+}
+.sot-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.sot-table th {
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  text-align: left;
+}
+.sot-table th:first-child { border-radius: 5px 0 0 0; }
+.sot-table th:last-child  { border-radius: 0 5px 0 0; }
+.sot-table td {
+  padding: 0 14px;
+  border-bottom: 1px solid var(--border);
+  height: 36px;
+  vertical-align: middle;
+}
+.sot-table tr:nth-child(even) td { background: var(--mist); }
+.sot-table tr:last-child td { border-bottom: 2px solid var(--blue); }
+.sot-table td.sot-process {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 13px;
+  width: 160px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.4);
+  text-align: center;
+  padding: 14px 40px;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ── TOGGLE BUTTON ── */
+.notes-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--steel);
+  cursor: pointer;
+  transition: all .15s;
+  letter-spacing: .02em;
+}
+.notes-toggle:hover {
+  border-color: var(--blue);
+  color: var(--navy);
+  background: var(--mist);
+}
+.notes-toggle .toggle-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 16px 6px;
+  background: #f8f9fc;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── HIDDEN STATE ── */
+.notes-hidden .facilitator-note,
+.notes-hidden .intent-bar {
+  display: none;
+}
+.notes-hidden .notes-toggle .toggle-dot {
+  background: #b0bbc8;
+}
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .page { box-shadow: none; border-radius: 0; }
+  .toggle-bar { display: none; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">Northern Computer Inc. · Northern Copilot Advantage · Stage 2</div>
+    <div class="header-badge">Session 1 · Facilitation Aid</div>
+    <h1>Core Process Map<br><span>Your AI Advantage</span></h1>
+    <p class="header-sub">A quick look at how your business works — and where AI fits in</p>
+    <div class="header-meta">
+      <div class="header-meta-item">
+        <div class="header-meta-lbl">Used In</div>
+        <div class="header-meta-val">Session 1 — Part B &amp; C</div>
+      </div>
+      <div class="header-meta-item">
+        <div class="header-meta-lbl">Time</div>
+        <div class="header-meta-val">~10 minutes in the room</div>
+      </div>
+      <div class="header-meta-item">
+        <div class="header-meta-lbl">Purpose</div>
+        <div class="header-meta-val">Vocabulary building — not a full inventory</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOGGLE -->
+  <div class="toggle-bar">
+    <button class="notes-toggle" onclick="toggleNotes(this)" aria-pressed="false">
+      <span class="toggle-dot"></span>
+      <span class="toggle-label">Hide facilitator notes</span>
+    </button>
+  </div>
+
+  <!-- INTENT BAR -->
+  <div class="intent-bar">
+    <strong>For the facilitator:</strong> Walk through this together — don't hand it out and wait. The goal is a quick, conversational sketch of their world. Rough answers are fine. This is about <em>familiarity with concepts</em>, not completeness.
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <div class="facilitator-note">
+      <strong>What we're doing here:</strong> We're going to identify your 4–6 most important business processes and take a quick look at the data that supports each one. This helps us understand what Copilot would actually be working with — and starts the conversation about who's responsible for keeping that information in good shape. <em>We're not trying to map everything today. We're building a shared picture we can refer to as the assessment progresses.</em>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="legend">
+      <span class="legend-label">Open to Copilot?</span>
+      <span class="legend-chip chip-yes">✓ &nbsp;Yes — first thought</span>
+      <span class="legend-chip chip-ns">? &nbsp;Not sure yet</span>
+      <span class="legend-chip chip-no">✕ &nbsp;No — keep out</span>
+    </div>
+    <div class="facilitator-note" style="margin-bottom:20px;margin-top:-8px;">
+      <strong>Facilitator note — "Open to Copilot?" column:</strong> Remind the group that a "Yes" here doesn't mean yes to everything within that area. It's a starting position — <em>"yes, we want Copilot working in this space"</em> — not a full access decision. The specifics of what Copilot can and can't see within each area get worked out properly in Stage 3. Flag this before anyone fills in the column.
+    </div>
+
+    <!-- MAIN TABLE -->
+    <table class="process-table">
+      <thead>
+        <tr>
+          <th>Core Process</th>
+          <th>Key Data Areas</th>
+          <th>Where Is It Stored?</th>
+          <th>Open to Copilot?<br><span style="font-weight:400;opacity:.7;font-style:italic;letter-spacing:0;text-transform:none;font-size:10px;">(first thought)</span></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- ROW 1: Sales -->
+        <tr>
+          <td class="cell-process">
+            <div class="process-name">Sales &amp;<br>Business Dev</div>
+            <div class="process-example">Proposals, pipeline, client history</div>
+          </td>
+          <td class="cell-data">
+            <div class="data-tags">
+              <span class="data-tag">Proposals</span>
+              <span class="data-tag">CRM</span>
+              <span class="data-tag">Quotes</span>
+            </div>
+            <div class="write-line"></div>
+          </td>
+          <td class="cell-where">
+            <div class="where-options">
+              <label class="where-opt"><span class="box"></span>Microsoft 365</label>
+              <label class="where-opt"><span class="box"></span>Dedicated software</label>
+              <label class="where-opt"><span class="box"></span>Email / Teams</label>
+              <label class="where-opt"><span class="box"></span>Other / unsure</label>
+            </div>
+          </td>
+          <td class="cell-intent">
+            <div class="intent-options">
+              <label class="intent-opt"><span class="intent-circle ic-yes"></span><span class="it-yes">Yes</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-ns"></span><span class="it-ns">Not sure</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-no"></span><span class="it-no">No</span></label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 2: Client / Account Management -->
+        <tr>
+          <td class="cell-process">
+            <div class="process-name">Client &amp;<br>Account Mgmt</div>
+            <div class="process-example">Ongoing service, communications, files</div>
+          </td>
+          <td class="cell-data">
+            <div class="data-tags">
+              <span class="data-tag">Client files</span>
+              <span class="data-tag">Emails</span>
+              <span class="data-tag">Notes</span>
+            </div>
+            <div class="write-line"></div>
+          </td>
+          <td class="cell-where">
+            <div class="where-options">
+              <label class="where-opt"><span class="box"></span>Microsoft 365</label>
+              <label class="where-opt"><span class="box"></span>Dedicated software</label>
+              <label class="where-opt"><span class="box"></span>Email / Teams</label>
+              <label class="where-opt"><span class="box"></span>Other / unsure</label>
+            </div>
+          </td>
+          <td class="cell-intent">
+            <div class="intent-options">
+              <label class="intent-opt"><span class="intent-circle ic-yes"></span><span class="it-yes">Yes</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-ns"></span><span class="it-ns">Not sure</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-no"></span><span class="it-no">No</span></label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 3: Operations -->
+        <tr>
+          <td class="cell-process">
+            <div class="process-name">Operations &amp;<br>Delivery</div>
+            <div class="process-example">Day-to-day work, projects, scheduling</div>
+          </td>
+          <td class="cell-data">
+            <div class="data-tags">
+              <span class="data-tag">Schedules</span>
+              <span class="data-tag">Procedures</span>
+              <span class="data-tag">Projects</span>
+            </div>
+            <div class="write-line"></div>
+          </td>
+          <td class="cell-where">
+            <div class="where-options">
+              <label class="where-opt"><span class="box"></span>Microsoft 365</label>
+              <label class="where-opt"><span class="box"></span>Dedicated software</label>
+              <label class="where-opt"><span class="box"></span>Email / Teams</label>
+              <label class="where-opt"><span class="box"></span>Other / unsure</label>
+            </div>
+          </td>
+          <td class="cell-intent">
+            <div class="intent-options">
+              <label class="intent-opt"><span class="intent-circle ic-yes"></span><span class="it-yes">Yes</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-ns"></span><span class="it-ns">Not sure</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-no"></span><span class="it-no">No</span></label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 4: Finance / Accounting -->
+        <tr>
+          <td class="cell-process">
+            <div class="process-name">Finance &amp;<br>Accounting</div>
+            <div class="process-example">Invoices, payroll, reporting, AR/AP</div>
+          </td>
+          <td class="cell-data">
+            <div class="data-tags">
+              <span class="data-tag">Invoices</span>
+              <span class="data-tag">Reports</span>
+              <span class="data-tag">Payroll</span>
+            </div>
+            <div class="write-line"></div>
+          </td>
+          <td class="cell-where">
+            <div class="where-options">
+              <label class="where-opt"><span class="box"></span>Microsoft 365</label>
+              <label class="where-opt"><span class="box"></span>Dedicated software</label>
+              <label class="where-opt"><span class="box"></span>Email / Teams</label>
+              <label class="where-opt"><span class="box"></span>Other / unsure</label>
+            </div>
+          </td>
+          <td class="cell-intent">
+            <div class="intent-options">
+              <label class="intent-opt"><span class="intent-circle ic-yes"></span><span class="it-yes">Yes</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-ns"></span><span class="it-ns">Not sure</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-no"></span><span class="it-no">No</span></label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 5: HR -->
+        <tr>
+          <td class="cell-process">
+            <div class="process-name">People &amp; HR</div>
+            <div class="process-example">Staff records, performance, onboarding</div>
+          </td>
+          <td class="cell-data">
+            <div class="data-tags">
+              <span class="data-tag">Staff files</span>
+              <span class="data-tag">Reviews</span>
+              <span class="data-tag">Policies</span>
+            </div>
+            <div class="write-line"></div>
+          </td>
+          <td class="cell-where">
+            <div class="where-options">
+              <label class="where-opt"><span class="box"></span>Microsoft 365</label>
+              <label class="where-opt"><span class="box"></span>Dedicated software</label>
+              <label class="where-opt"><span class="box"></span>Email / Teams</label>
+              <label class="where-opt"><span class="box"></span>Other / unsure</label>
+            </div>
+          </td>
+          <td class="cell-intent">
+            <div class="intent-options">
+              <label class="intent-opt"><span class="intent-circle ic-yes"></span><span class="it-yes">Yes</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-ns"></span><span class="it-ns">Not sure</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-no"></span><span class="it-no">No</span></label>
+            </div>
+          </td>
+        </tr>
+
+        <!-- BLANK ROW -->
+        <tr class="blank-row">
+          <td class="cell-process">
+            <div class="process-name" style="color:#b0bbc8;font-weight:400;font-style:italic;">Other process</div>
+          </td>
+          <td class="cell-data">
+            <div class="write-line"></div>
+            <div class="write-line"></div>
+          </td>
+          <td class="cell-where">
+            <div class="where-options">
+              <label class="where-opt"><span class="box"></span>Microsoft 365</label>
+              <label class="where-opt"><span class="box"></span>Dedicated software</label>
+              <label class="where-opt"><span class="box"></span>Email / Teams</label>
+              <label class="where-opt"><span class="box"></span>Other / unsure</label>
+            </div>
+          </td>
+          <td class="cell-intent">
+            <div class="intent-options">
+              <label class="intent-opt"><span class="intent-circle ic-yes"></span><span class="it-yes">Yes</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-ns"></span><span class="it-ns">Not sure</span></label>
+              <label class="intent-opt"><span class="intent-circle ic-no"></span><span class="it-no">No</span></label>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- SOURCE OF TRUTH -->
+    <div class="sot-section">
+      <div class="sot-title">Source of Truth — Quick Check</div>
+      <div class="sot-note">For each process above, where does the <em>authoritative</em> version of the data live? If there are multiple copies, which one do you trust?</div>
+      <table class="sot-table">
+        <thead>
+          <tr>
+            <th>Process</th>
+            <th>Where the real version lives</th>
+            <th>Who decides if it's correct?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="sot-process">Sales &amp; Business Dev</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="sot-process">Client &amp; Account Mgmt</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="sot-process">Operations &amp; Delivery</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="sot-process">Finance &amp; Accounting</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="sot-process">People &amp; HR</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="sot-process" style="color:#b0bbc8;font-weight:400;font-style:italic;">Other</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="footer" id="doc-footer">
+    Northern Computer Inc. · Northern Copilot Advantage · Stage 2 · Your AI Advantage · Session 1 Facilitation Aid · Not for Client Distribution
+  </div>
+
+</div><!-- /page -->
+
+<script>
+function toggleNotes(btn) {
+  var page = document.querySelector('.page');
+  var label = btn.querySelector('.toggle-label');
+  var footer = document.getElementById('doc-footer');
+  var hidden = page.classList.toggle('notes-hidden');
+  btn.setAttribute('aria-pressed', hidden);
+  if (hidden) {
+    label.textContent = 'Show facilitator notes';
+    footer.textContent = 'Northern Computer Inc. \u00b7 Northern Copilot Advantage \u00b7 Stage 2 \u00b7 Your AI Advantage \u00b7 Session 1';
+  } else {
+    label.textContent = 'Hide facilitator notes';
+    footer.textContent = 'Northern Computer Inc. \u00b7 Northern Copilot Advantage \u00b7 Stage 2 \u00b7 Your AI Advantage \u00b7 Session 1 Facilitation Aid \u00b7 Not for Client Distribution';
+  }
+}
+</script>
+</body>
+</html>

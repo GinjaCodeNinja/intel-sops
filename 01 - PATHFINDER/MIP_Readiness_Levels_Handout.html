@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Readiness Levels — Northern Copilot Advantage</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
+
+:root {
+  --navy:         #1D314A;
+  --navy-light:   #243d5c;
+  --blue:         #2e5a8e;
+  --orange:       #E67E22;
+  --orange-light: #F39C55;
+  --teal:         #0F6E56;
+  --green:        #1a6b4a;
+  --grey-bg:      #f4f5f7;
+  --grey-mid:     #e8e9ec;
+  --grey-text:    #5a6272;
+  --text:         #2c2c2c;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--grey-bg);
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─── */
+.header {
+  background: linear-gradient(145deg, var(--navy) 0%, var(--navy-light) 55%, var(--blue) 100%);
+  color: #fff;
+  padding: 44px 48px 36px;
+}
+.header-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange-light);
+  margin-bottom: 10px;
+}
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.header h1 span { color: var(--orange-light); }
+.header-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.82);
+  max-width: 640px;
+  line-height: 1.55;
+}
+.header-rule {
+  width: 52px;
+  height: 3px;
+  background: var(--orange);
+  margin: 18px 0 0;
+  border-radius: 2px;
+}
+
+/* ─── PAGE BODY ─── */
+.page-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+
+/* ─── FRAMING CALLOUT ─── */
+.framing-box {
+  background: #fff;
+  border-left: 5px solid var(--orange);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+.framing-box p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.65;
+}
+.framing-box p + p { margin-top: 10px; }
+.framing-box strong { color: var(--navy); font-weight: 700; }
+
+/* ─── SECTION HEADING ─── */
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+
+/* ─── LEVEL ROWS ─── */
+.level-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 36px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+}
+
+.level-row {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border-bottom: 1px solid var(--grey-mid);
+  transition: background 0.15s;
+}
+.level-row:last-child { border-bottom: none; }
+
+/* Number column */
+.level-num {
+  width: 56px;
+  min-width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grey-mid);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+/* Name column */
+.level-name-col {
+  width: 200px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 18px;
+  border-right: 1px solid var(--grey-mid);
+  flex-shrink: 0;
+}
+.level-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+/* Description column */
+.level-desc {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--grey-text);
+  line-height: 1.6;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Badge */
+.level-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-top: 6px;
+  white-space: nowrap;
+}
+.badge-target {
+  background: var(--teal);
+  color: #fff;
+}
+.badge-ahead {
+  background: var(--grey-mid);
+  color: var(--grey-text);
+}
+
+/* ── Active highlights ── */
+.level-row.is-active .level-num {
+  background: var(--navy);
+  color: var(--orange-light);
+}
+.level-row.is-active {
+  background: #f7f9ff;
+}
+.level-row.is-active .level-desc {
+  color: var(--navy);
+}
+
+/* ── Target level ── */
+.level-row.is-target .level-num {
+  background: var(--teal);
+  color: #fff;
+}
+.level-row.is-target .level-name {
+  color: var(--teal);
+}
+.level-row.is-target {
+  background: #f2faf7;
+}
+.level-row.is-target .level-desc {
+  color: #1a4038;
+}
+
+/* Levels 4 & 5 — ahead/dimmed */
+.level-row.is-ahead {
+  opacity: 0.72;
+}
+.level-row.is-ahead .level-num {
+  background: var(--grey-bg);
+  color: var(--grey-text);
+}
+
+/* ─── TARGET HIGHLIGHT BOX ─── */
+.target-box {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.07);
+}
+.target-box-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.target-box-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.target-box-icon svg { width: 18px; height: 18px; }
+.target-box-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+.target-box p {
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.target-box p:last-child { margin-bottom: 0; }
+.use-case-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.chip {
+  background: #e8f5f0;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid #b8dfd2;
+}
+
+/* ─── UNLOCK TABLE ─── */
+.section-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 32px;
+}
+
+.unlock-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin-top: 6px;
+}
+.unlock-table thead tr {
+  background: var(--navy);
+  color: #fff;
+}
+.unlock-table thead th {
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: left;
+}
+.unlock-table tbody tr {
+  border-bottom: 1px solid var(--grey-mid);
+}
+.unlock-table tbody tr:last-child { border-bottom: none; }
+.unlock-table tbody td {
+  padding: 11px 14px;
+  vertical-align: top;
+  color: var(--grey-text);
+}
+.unlock-table tbody tr.row-target { background: #f2faf7; }
+.unlock-table tbody tr.row-target td { color: #1a4038; }
+.unlock-table tbody tr.row-locked { opacity: 0.65; }
+
+.ut-level { font-weight: 700; color: var(--navy); font-size: 13px; white-space: nowrap; }
+.unlock-table tbody tr.row-target .ut-level { color: var(--teal); }
+
+/* Status dots */
+.ut-status { white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.dot-red    { background: #d9534f; }
+.dot-amber  { background: #e8a020; }
+.dot-green  { background: var(--teal); }
+.dot-grey   { background: #b0b8c4; }
+
+/* ─── PACE CALLOUT ─── */
+.pace-callout {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.pace-callout p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.pace-callout strong { color: var(--orange-light); }
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.6);
+  padding: 18px 48px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer strong { color: rgba(255,255,255,0.85); }
+
+/* ─── FACILITATOR NOTE ─── */
+.facilitator-note {
+  background: #fffbf0;
+  border: 1px dashed #d4a020;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: #5a4a10;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.facilitator-note strong { color: var(--navy); font-style: normal; }
+
+/* ─── TOGGLE ─── */
+.toggle-bar {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 10px 24px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.notes-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1.5px solid var(--grey-mid);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--grey-text);
+  cursor: pointer;
+  letter-spacing: .02em;
+  transition: all .15s;
+}
+.notes-toggle:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+.notes-toggle .toggle-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--navy);
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.notes-hidden .facilitator-note { display: none; }
+.notes-hidden .toggle-dot { background: var(--grey-mid) !important; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 620px) {
+  .header { padding: 28px 20px 24px; }
+  .header h1 { font-size: 1.55rem; }
+  .page-body { padding: 24px 16px 48px; }
+  .level-name-col { width: 140px; min-width: 120px; }
+  .level-num { width: 44px; min-width: 44px; font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-eyebrow">Northern Copilot Advantage · Stage 2</div>
+  <h1>AI Readiness Levels:<br><span>What They Mean and Where You're Going</span></h1>
+  <p class="header-sub">Before we look at your assessment results, it helps to understand the framework used to score them — and what you're building toward.</p>
+  <div class="header-rule"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BODY
+═══════════════════════════════════════════════ -->
+<div class="toggle-bar">
+  <button class="notes-toggle" onclick="toggleNotes(this)" aria-pressed="false">
+    <span class="toggle-dot"></span>
+    <span class="toggle-label">Hide facilitator notes</span>
+  </button>
+</div>
+
+<div class="page-body">
+
+  <!-- Facilitator note -->
+  <div class="facilitator-note">
+    <strong>Facilitator note:</strong> Walk through this before revealing the client's level. The goal is to normalize Level 1 and make Level 3 feel achievable — not far off. This framing should land before any number is shown.
+  </div>
+
+  <!-- Framing -->
+  <div class="framing-box">
+    <p>NCI assesses Copilot readiness on a five-level scale. Each level reflects how well your Microsoft 365 environment is organized, governed, and secured — and what Copilot can safely do for your team at that stage.</p>
+    <p><strong>Level 1 is the normal starting point</strong> — it simply means the environment hasn't been organized with AI in mind yet. Most organizations are here. The question isn't where you are today — it's how quickly you can get to Level 3, and what needs to happen to get there.</p>
+  </div>
+
+  <!-- The five levels -->
+  <div class="section-heading">The Five Levels</div>
+
+  <div class="level-stack">
+
+    <!-- Level 1 -->
+    <div class="level-row is-active">
+      <div class="level-num">1</div>
+      <div class="level-name-col">
+        <div class="level-name">Ready to Start</div>
+      </div>
+      <div class="level-desc">Your Microsoft 365 environment works well for daily use, but it hasn't been organized with AI in mind yet. Some cleanup and governance work is needed before Copilot can operate safely. <em>This is the most common starting point.</em></div>
+    </div>
+
+    <!-- Level 2 -->
+    <div class="level-row">
+      <div class="level-num">2</div>
+      <div class="level-name-col">
+        <div class="level-name">Building the Foundation</div>
+      </div>
+      <div class="level-desc">Core security is strong and the foundational work is underway — establishing who owns what, how documents should be organized, and the rules for sharing and access. Copilot is the near-term goal.</div>
+    </div>
+
+    <!-- Level 3 — target -->
+    <div class="level-row is-target">
+      <div class="level-num">3</div>
+      <div class="level-name-col">
+        <div class="level-name">Ready to Pilot</div>
+        <span class="level-badge badge-target">Activation target</span>
+      </div>
+      <div class="level-desc">Your environment meets the baseline requirements for responsible Copilot use. A pilot group can activate and begin using Copilot in their daily work. <strong>This is what Stage 2 is designed to reach.</strong></div>
+    </div>
+
+    <!-- Level 4 -->
+    <div class="level-row is-ahead">
+      <div class="level-num">4</div>
+      <div class="level-name-col">
+        <div class="level-name">Copilot Active</div>
+        <span class="level-badge badge-ahead">Comes next</span>
+      </div>
+      <div class="level-desc">Copilot is live for the full organization. Your team is trained, usage is monitored, and the environment is maintained to support continued AI use.</div>
+    </div>
+
+    <!-- Level 5 -->
+    <div class="level-row is-ahead">
+      <div class="level-num">5</div>
+      <div class="level-name-col">
+        <div class="level-name">Optimizing for AI</div>
+        <span class="level-badge badge-ahead">Comes next</span>
+      </div>
+      <div class="level-desc">Copilot is embedded in how your team works. The focus is on automation, deeper workflows, and expanding what AI contributes to the business.</div>
+    </div>
+
+  </div><!-- /.level-stack -->
+
+  <!-- Level 3 spotlight -->
+  <div class="target-box">
+    <div class="target-box-header">
+      <div class="target-box-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/>
+          <line x1="12" y1="2.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="21.5"/>
+          <line x1="2.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="21.5" y2="12"/>
+        </svg>
+      </div>
+      <div class="target-box-title">What Level 3 Unlocks — the Activation Milestone</div>
+    </div>
+    <p>At Level 3, a pilot group can activate Microsoft 365 Copilot and begin using it in their daily work. These are the use cases that consistently show up as highest-value for leadership teams:</p>
+    <div class="use-case-chips">
+      <span class="chip">Summarize email threads</span>
+      <span class="chip">Recap missed meetings with action items</span>
+      <span class="chip">Draft documents and communications</span>
+      <span class="chip">Search intelligently across your files</span>
+    </div>
+  </div>
+
+  <!-- What Copilot can do at each level -->
+  <div class="section-card">
+    <div class="section-heading" style="margin-bottom:14px;">Copilot Status at Each Level</div>
+    <table class="unlock-table">
+      <thead>
+        <tr>
+          <th style="width:30%">Level</th>
+          <th style="width:26%">Copilot Status</th>
+          <th>What Becomes Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ut-level">1 — Ready to Start</span></td>
+          <td><span class="ut-status"><span class="dot dot-grey"></span>Not yet activated</span></td>
+          <td style="color:#b0b8c4">—</td>
+        </tr>
+        <tr>
+          <td><span class="ut-level">2 — Building the Foundation</span></td>
+          <td><span class="ut-status"><span class="dot dot-amber"></span>Not yet — preparing</span></td>
+          <td>Groundwork underway; user training may begin</td>
+        </tr>
+        <tr class="row-target">
+          <td><span class="ut-level">3 — Ready to Pilot</span></td>
+          <td><span class="ut-status"><span class="dot dot-green"></span>Pilot group active</span></td>
+          <td>Summarize emails &nbsp;·&nbsp; Recap meetings &nbsp;·&nbsp; Draft documents and communications &nbsp;·&nbsp; Intelligent file search</td>
+        </tr>
+        <tr class="row-locked">
+          <td><span class="ut-level">4 — Copilot Active</span></td>
+          <td><span class="ut-status"><span class="dot dot-green"></span>All users</span></td>
+          <td>Full Copilot in Outlook, Teams, Word, and Excel &nbsp;·&nbsp; Meeting notes &nbsp;·&nbsp; AI-assisted document review</td>
+        </tr>
+        <tr class="row-locked">
+          <td><span class="ut-level">5 — Optimizing for AI</span></td>
+          <td><span class="ut-status"><span class="dot dot-green"></span>Full capability</span></td>
+          <td>Copilot Pages &nbsp;·&nbsp; Workflow automation &nbsp;·&nbsp; Custom AI agents</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pace callout -->
+  <div class="pace-callout">
+    <p>Getting from Level 1 to Level 3 is achievable in <strong>8–10 weeks.</strong> The rate-limiting factor is not technical — it is organizational. Decisions about who owns which information, how it should be classified, and what your AI policy will say require input from your leadership team. NCI will facilitate, draft, and configure. <strong>You make the decisions.</strong></p>
+  </div>
+
+</div><!-- /.page-body -->
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<div class="footer" id="doc-footer">
+  <div><strong>Northern Copilot Advantage</strong> · Stage 2 — AI Readiness Assessment</div>
+  <div id="footer-dist">OK Northern Computer Inc. · Not for external distribution</div>
+</div>
+
+<script>
+function toggleNotes(btn) {
+  var body = document.body;
+  var label = btn.querySelector('.toggle-label');
+  var dist  = document.getElementById('footer-dist');
+  var hidden = body.classList.toggle('notes-hidden');
+  btn.setAttribute('aria-pressed', hidden);
+  if (hidden) {
+    label.textContent = 'Show facilitator notes';
+    dist.textContent  = 'OK Northern Computer Inc.';
+  } else {
+    label.textContent = 'Hide facilitator notes';
+    dist.textContent  = 'OK Northern Computer Inc. \u00b7 Not for external distribution';
+  }
+}
+</script>
+</body>
+</html>
