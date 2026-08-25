@@ -1,9 +1,9 @@
-# NCA Training Platform
-## The facilitator app the Kickstart runs from
+# MIP Training Platform
+## The facilitator app the Basecamp runs from
 
 > **Live at:** [https://aitraining.northerncomputer.ca](https://aitraining.northerncomputer.ca) · repo: `…/Documents/GitHub/Northern Copilot Advantage` (Azure Static Web App)
 
-A browser-based facilitator app that delivers the **Kickstart** intro workshop. No install — the facilitator drives it from a browser; participants follow along and pick up their handouts from a link.
+A browser-based facilitator app that delivers the **Basecamp** intro workshop. No install — the facilitator drives it from a browser; participants follow along and pick up their handouts from a link.
 
 ## What it does
 - **Prepare Customer Session** — a wizard that sets up a session for a specific client (branding, content, handouts).
@@ -13,7 +13,7 @@ A browser-based facilitator app that delivers the **Kickstart** intro workshop. 
 - **File Sharing** — generates a **customized sharing link** that gives participants their session resources.
 
 ## Session handouts (the "Session Resources" page)
-At wrap-up, participants receive a **customized File Sharing link** — the "Session Resources" page — that lets them download the Kickstart deliverables. These live in the Stage 2 subfolder **`Kickstarter Deliverables\`**:
+At wrap-up, participants receive a **customized File Sharing link** — the "Session Resources" page — that lets them download the Basecamp deliverables. These live in the Stage 2 subfolder **`Basecamp Deliverables\`**:
 
 - `AI Pledge NCI.pdf` — the participant + sponsor responsible-use pledge.
 - `Prompt Guide NCI.pdf` — the prompting how-to.

@@ -1,4 +1,4 @@
-# NCA Assessment Engine — Claude Code Scaffold Prompt
+# MIP Assessment Engine — Claude Code Scaffold Prompt
 
 > **Instructions:** Paste everything below this line into Claude Code in the CIPP project.
 
@@ -7,7 +7,7 @@
 ## Task: Scaffold an AI Readiness Assessment Data Pipeline (POC)
 
 ### What You're Building
-A data collection pipeline called the NCA Assessment Engine. It gathers M365 tenant health data from two sources — AvePoint Elements API and Microsoft Graph — and stores raw JSON responses in Azure SQL. This is the first phase of an AI readiness scoring tool.
+A data collection pipeline called the MIP Assessment Engine. It gathers M365 tenant health data from two sources — AvePoint Elements API and Microsoft Graph — and stores raw JSON responses in Azure SQL. This is the first phase of an AI readiness scoring tool.
 
 **Today's scope:** API scaffolds only. Call each endpoint, store the raw JSON response, return a summary. No scoring logic, no transformations, no report generation yet.
 

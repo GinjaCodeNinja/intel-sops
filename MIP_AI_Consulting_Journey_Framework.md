@@ -2,7 +2,7 @@
 ## Outpost, Frontier & Apex — the fractional AI-expert engagement, end to end
 
 **Status:** Internal Working Document — Draft v0.4
-**Purpose:** Define what the **AI Consulting** component of the Northern Copilot Advantage (NCA) offering actually delivers — the hands-on path NCI leads a client down once they're past the foundation, through Copilot fluency, into agents, automation, and (at Frontier) Claude and third-party AI, with custom builds and ongoing optimization at Apex, while their data and process foundation keeps maturing underneath.
+**Purpose:** Define what the **AI Consulting** component of the Managed Intelligence Program (MIP) offering actually delivers — the hands-on path NCI leads a client down once they're past the foundation, through Copilot fluency, into agents, automation, and (at Frontier) Claude and third-party AI, with custom builds and ongoing optimization at Apex, while their data and process foundation keeps maturing underneath.
 **Audience:** NCI delivery staff (the "fractional AI expert" role). A lighter client-facing view is produced separately (`NCA_Discovery_Journey_Map.html`).
 **Scope:** the **Outpost, Frontier, and Apex** consulting stages only. This is *not* the whole-program map.
 **v0.4 changes:** renames Walk/Run/Fly to **Pathfinder/Outpost/Frontier**; splits the former Fly scope into **Frontier** (tool graduation + integration readiness + governance groundwork) and a new **Apex** stage (custom build, managed digital workforce, ongoing optimization/roadmap planning); reflects the single **AI Consulting Pricing Model** that now prices all paid work, replacing separate per-stage pricing.
@@ -10,15 +10,15 @@
 ---
 
 ## Where this sits
-- **The whole program** (Kickstart → Pathfinder → Outpost → Frontier → Apex, both rails, the core principles) lives in the **Program Overview** (`NCA_AI_Delivery_System_Overview.md`) — that's the map. Read it first.
-- **Kickstart** (the intro workshop) and **Pathfinder** (the Foundation governance managed-service) each have their **own Overview + SOPs** — this document does *not* cover their delivery.
+- **The whole program** (Basecamp → Pathfinder → Outpost → Frontier → Apex, both rails, the core principles) lives in the **Program Overview** (`NCA_AI_Delivery_System_Overview.md`) — that's the map. Read it first.
+- **Basecamp** (the intro workshop) and **Pathfinder** (the Foundation governance managed-service) each have their **own Overview + SOPs** — this document does *not* cover their delivery.
 - **This document is the delivery model for the paid consulting stages — Outpost, Frontier & Apex.** It goes deepest there because that's where the AI-capability work concentrates. The whole-journey visual companion is the Journey Map (`NCA_Discovery_Journey_Map.html`).
 
 ---
 
 ## 1. What this is, and why it exists
 
-Kickstart teaches people that AI is useful. Pathfinder — starting with the AI Readiness Assessment — makes their environment safe and gets Copilot activated for first users. **This model picks up from there:** the Outpost → Frontier → Apex part where a client moves from "we've tried Copilot and we like it" to "AI is changing how we work."
+Basecamp teaches people that AI is useful. Pathfinder — starting with the AI Readiness Assessment — makes their environment safe and gets Copilot activated for first users. **This model picks up from there:** the Outpost → Frontier → Apex part where a client moves from "we've tried Copilot and we like it" to "AI is changing how we work."
 
 It fills three gaps flagged as *not written* in the May 2026 State of Play: the Outpost service description, the fractional expert's monthly session format, and the declarative-agent support scope. It is the **curriculum and delivery layer** underneath the Outpost stage's `AI Adoption & Analytics` and `Task Automation` MI components, extending into Frontier and Apex.
 
@@ -35,7 +35,7 @@ Structure is available on demand, never imposed.
 
 ---
 
-## 2. How this fits the existing NCA frameworks
+## 2. How this fits the existing MIP frameworks
 
 This is **not a fourth framework.** It is the delivery layer under the three that already exist. One story, three views:
 
@@ -58,7 +58,7 @@ A client matures along **two different axes at once**, and keeping them distinct
 - **Rail A — AI Capability:** how well the client understands and *uses* AI. (Fluency → workflow thinking → builds → agents.)
 - **Rail B — Data & Process Foundation:** how well the client understands and *manages their own data and processes* — where data lives, what's authoritative, what their core processes are, and which third-party systems hold data AI may need.
 
-**Rail B is the enabler and the rate-limiter of Rail A.** You cannot safely build on data nobody has organized, and you cannot connect AI to systems nobody has inventoried. Much of Rail B is already in the NCA program — Stage 2's "two questions," the Data Owner role, and the Pathfinder workspace cycle are all Rail B — but it has never been named as a tracked stream. This framework makes it explicit and gives it its own progress tracking.
+**Rail B is the enabler and the rate-limiter of Rail A.** You cannot safely build on data nobody has organized, and you cannot connect AI to systems nobody has inventoried. Much of Rail B is already in the MIP program — Stage 2's "two questions," the Data Owner role, and the Pathfinder workspace cycle are all Rail B — but it has never been named as a tracked stream. This framework makes it explicit and gives it its own progress tracking.
 
 ### The rails meet at the governance gates
 The gates in Rail A (§9) don't invent new checks — they *read Rail B's progress*. A workspace that Rail B has cleaned and signed off is what unlocks a Rail A build on that data. This handshake is what makes the two rails one journey instead of two to-do lists.
@@ -93,7 +93,7 @@ This is the canonical mapping. The rails run through all four stages; the *balan
 Six stages in client-outcome language. Each answers "what is different for the client after this stage."
 
 ### Stage A1 — Foundations
-*Basic AI literacy, prompting, and a safe-use mindset.* Delivered by Stage 1 Kickstart (complete). Level 1 · pre-Pathfinder/Pathfinder.
+*Basic AI literacy, prompting, and a safe-use mindset.* Delivered by Stage 1 Basecamp (complete). Level 1 · pre-Pathfinder/Pathfinder.
 
 ### Stage A2 — Copilot Fluency
 *Master the full license — get real daily value out of what they already pay for.* Org-wide recall ("find that thing we worked on for the marina job"), meeting summaries, cross-app drafting. Most of the ROI a client ever gets is here — don't let a working group chase agents while the org still can't get a good summary. MI: Copilot Activation → AI Adoption · Pathfinder→Outpost · Level 3–4.

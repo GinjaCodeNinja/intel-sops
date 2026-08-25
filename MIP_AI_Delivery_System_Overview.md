@@ -1,4 +1,4 @@
-# Northern Copilot Advantage — Program Overview
+# Managed Intelligence Program — Program Overview
 ## The whole program + how we deliver it · Start here
 
 **Status:** Internal Working Draft v0.1 — stage names are final (Pathfinder / Outpost / Frontier / Apex); delivery details within each stage are still working drafts.
@@ -9,7 +9,7 @@
 ## Start here — recommended reading order
 1. **This Program Overview** — the map (you're here).
 2. **The Journey Map (visual)** — the whole journey at a glance; the visual companion to this map.
-3. **Kickstart** — Overview → Onboarding SOP → Delivery SOP.
+3. **Basecamp** — Overview → Onboarding SOP → Delivery SOP.
 4. **Pathfinder** — Overview → Onboarding → Delivery → Open Decisions. *(Pathfinder's first onboarding step is the AI Readiness Assessment.)*
 5. **Outpost** — Overview → Onboarding → Delivery → Open Decisions.
 6. **Frontier** — Overview → Onboarding → Delivery → Open Decisions.
@@ -21,8 +21,8 @@
 ---
 
 ## The program at a glance
-A client moves through: **Kickstart** → **Pathfinder** → **Outpost** → **Frontier** → **Apex**.
-- **Kickstart** — a ~90-min intro workshop delivered from the NCA training platform; shows the value, sets safe-use basics.
+A client moves through: **Basecamp** → **Pathfinder** → **Outpost** → **Frontier** → **Apex**.
+- **Basecamp** — a ~90-min intro workshop delivered from the MIP training platform; shows the value, sets safe-use basics.
 - **Pathfinder (Foundation)** — starts with the **AI Readiness Assessment** (included in sign-up), then a governance managed-service: clean/govern data, activate Copilot for first users.
 - **Outpost (Adoption)** — a consulting engagement: working group, monthly AI-Expert session, first agents.
 - **Frontier (Scale-Readiness)** — graduates the client from Copilot to Claude + other third-party AI, gets their third-party platforms inventoried and triaged for integration, and stands up the governance groundwork an autonomous system needs before anything unattended goes live.
@@ -52,6 +52,6 @@ Everything is a working draft. Known placeholders to develop next:
 1. The **AI Readiness Assessment** process (Pathfinder's first step) — grounded in the AvePoint scan + Claude report flow; leaner than the very original plans.
 2. The **Unattended AI Starter Kit** (Frontier) — safe-sandbox + governance for autonomous AI.
 3. **Custom AI-integrated web apps** (Apex) — for workflows agents alone can't carry.
-4. The **Kickstart SOPs** — rough drafts, to be fleshed out with the prior facilitator's delivery notes.
+4. The **Basecamp SOPs** — rough drafts, to be fleshed out with the prior facilitator's delivery notes.
 
 *Builds on existing assets: the State of Play strategy brief, the internal session design (v3), the Data Owner Role, the AUP example, the Readiness Levels handout, and the Process Map.*

@@ -1,5 +1,5 @@
 # Pathfinder · Foundation — Overview
-## Northern Copilot Advantage · Stage Overview
+## Managed Intelligence Program · Stage Overview
 
 **Status:** Internal Working Draft v0.1 — stage name is final; delivery details below still draft.
 **Read this first** for Pathfinder, then the Onboarding SOP, Delivery SOP, and Open Decisions.
@@ -7,7 +7,7 @@
 ---
 
 ## What this stage is
-- **Position:** the **Foundation** stage — the first stage after Kickstart. Readiness **Levels 1 → 3**.
+- **Position:** the **Foundation** stage — the first stage after Basecamp. Readiness **Levels 1 → 3**.
 - **Character:** a **governance managed-service**, not a consulting engagement. It **excludes** the AI-Expert monthly session (that's Outpost).
 - **Tool:** Copilot.
 - **Delivery role:** a **Pathfinder delivery lead** (governance/service).

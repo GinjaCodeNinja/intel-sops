@@ -108,9 +108,9 @@
 - Options: (a) small pilot (e.g., 3–5); (b) by department; (c) client's call with NCI guidance.
 - Status: Open
 
-**E3 · Light user training for first users — reuse Stage 1 Kickstart?**
+**E3 · Light user training for first users — reuse Stage 1 Basecamp?**
 - Why it matters: activation without skill = wasted licenses.
-- Options: (a) point them at Stage 1 Kickstart; (b) a short Pathfinder-specific primer; (c) rely on self-serve.
+- Options: (a) point them at Stage 1 Basecamp; (b) a short Pathfinder-specific primer; (c) rely on self-serve.
 - Status: Open
 
 **E4 · What does "basic Copilot Chat support" include vs. exclude?**

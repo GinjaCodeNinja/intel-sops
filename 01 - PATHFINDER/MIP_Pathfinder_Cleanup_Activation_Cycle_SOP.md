@@ -31,7 +31,7 @@ Repeats across workspaces (Sales, Finance, HR, Operations, projects…). One wor
 ## 3. Copilot activation & basic support
 - **Activate incrementally:** enable pilot users on each workspace as it signs off — value builds cycle by cycle, not in one go.
 - **Basic Copilot Chat support:** prompt help and day-to-day questions. ⟨included vs excluded → Register §E4⟩ Not included: agent dev, workflow consulting, Claude/third-party (Outpost/Frontier).
-- **Light user enablement** for first users. ⟨reuse Stage 1 Kickstart? → Register §E3⟩
+- **Light user enablement** for first users. ⟨reuse Stage 1 Basecamp? → Register §E3⟩
 - **Sharpen relevance (Copilot):** on a signed-off workspace, **mark the authoritative library** and use a simple **Status metadata column** (Current / Superseded / Draft) so Copilot prioritizes the right documents. *(Copilot-specific — this tuning doesn't apply to Claude.)* ⟨granular metadata control → Register §L6⟩
 
 ## 4. AvePoint health monitoring

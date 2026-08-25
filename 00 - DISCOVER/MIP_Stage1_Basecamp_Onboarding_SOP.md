@@ -1,15 +1,15 @@
-# Kickstart — Onboarding SOP *(rough draft)*
+# Basecamp — Onboarding SOP *(rough draft)*
 ## For the facilitator + account manager
 
-> **ROUGH DRAFT** — grounded in the NCA training-platform README; to be fleshed out with **Nick Chubb's delivery documentation**. Points marked ⟨OPEN⟩ need a decision or Nick's input.
+> **ROUGH DRAFT** — grounded in the MIP training-platform README; to be fleshed out with **Nick Chubb's delivery documentation**. Points marked ⟨OPEN⟩ need a decision or Nick's input.
 
-**What this covers:** getting a Kickstart from **account-manager handoff → session scheduled, set up in the training platform, and ready to deliver.** Running the session lives in the Delivery SOP.
-**Platform:** the **NCA training platform** (browser-based facilitator app). Copilot chat in the workshop is **simulated by the platform**, so participants do **not** need Copilot licenses to attend. No named owners — the weekly coordination group assigns.
+**What this covers:** getting a Basecamp from **account-manager handoff → session scheduled, set up in the training platform, and ready to deliver.** Running the session lives in the Delivery SOP.
+**Platform:** the **MIP training platform** (browser-based facilitator app). Copilot chat in the workshop is **simulated by the platform**, so participants do **not** need Copilot licenses to attend. No named owners — the weekly coordination group assigns.
 
 ---
 
 ## 1. Trigger & handoff from the account manager
-- Trigger: the AM flags an interested client and requests a Kickstart.
+- Trigger: the AM flags an interested client and requests a Basecamp.
 - AM sends ahead: client/company name, approximate **headcount + roles** attending, preferred timing, any goals or sensitivities, and the primary contact. ⟨OPEN: standard intake form? → confirm with the group⟩
 
 ## 2. Info sent to the client ahead of time
@@ -23,7 +23,7 @@
 
 ## 4. Set the session up in the training platform
 Using the platform's **Prepare Customer Session** wizard:
-- Select the source session plan (the standard Kickstart lesson sequence).
+- Select the source session plan (the standard Basecamp lesson sequence).
 - Enter the **client's company name**.
 - Choose a theme, or generate one with the **Customer Theme Generator** (extracts brand colors/fonts from the client's website) so slides are client-branded.
 - Confirm the lesson sequence + the **welcome screen** (company name/greeting).
@@ -41,7 +41,7 @@ Using the platform's **Prepare Customer Session** wizard:
 - [ ] Session set up in the platform (company name, theme, welcome screen)
 - [ ] Participant launch link (and any files) shared
 - [ ] Facilitator prepped (PWA installed, Presenter View, dry-run)
-- → Proceed to the **Kickstart Delivery SOP**.
+- → Proceed to the **Basecamp Delivery SOP**.
 
 ## 7. Open questions *(for Nick's docs / the group)*
 - Standard intake fields from the AM; max participants per session; any pre-reading; who owns platform setup; whether a leadership debrief is booked as part of scheduling.
